@@ -128,8 +128,7 @@ List< ProductsModels> products =[
             mainAxisSpacing: 20.0,
             crossAxisSpacing: 10.0,
             childAspectRatio: 1/1.3,
-            children:
-              List.generate(
+            children: List.generate(
 
                   products.length, (index) =>buildProductItem( products [index])
               ),
@@ -144,14 +143,14 @@ List< ProductsModels> products =[
     )
       );
 
-  }
+  }/// Grid View Class
 
 
  Widget buildProductItem(ProductsModels models) =>Padding(
    padding: const EdgeInsets.all(4.0),
    child: Container(
      color: Colors.red,
-///////////////////////
+
 
 
        child:
