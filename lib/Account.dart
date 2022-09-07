@@ -4,6 +4,28 @@ class Account extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                width: 200,
+                height: 200,
+                color: Colors.blue,
+              ),
+              const Text(
+                "medo",
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 100
+                ),
+              )
+            ],
+          )
+
+        ],
+      ),
+    );
   }
 }

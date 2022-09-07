@@ -147,56 +147,92 @@ List< ProductsModels> products =[
   }
 
 
- Widget buildProductItem(ProductsModels models) =>Container(
-   color: Colors.white,
-     child:
-     Column(
-       crossAxisAlignment: CrossAxisAlignment.start,
+ Widget buildProductItem(ProductsModels models) =>Padding(
+   padding: const EdgeInsets.all(4.0),
+   child: Container(
+     color: Colors.red,
 
-     children: [Stack(alignment: Alignment.topRight,
+
+
+       child:
+       Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+
        children: [
-
-       Image(
-         image: AssetImage(models.image),
-         width: double.infinity,
-         fit: BoxFit.cover,
-         height: 140.0,
-       ),const Padding(
-             padding:EdgeInsets.symmetric(horizontal: 10),
-           child: Icon(Icons.favorite_border,size: 40,color: Colors.white,),
-
- )
-       ],
-     ),
-
-       Text(models.name!),
-       Text(models.brand!),
-
-       Text(models.price!,
-         style: const TextStyle(color:Colors.red,fontSize: 25),
-       ),
-       Row(
+         Stack(
+         alignment: Alignment.topRight,
          children: [
-           Text('${models.oldPrice}',
-            style: const TextStyle(fontSize: 20,color: Colors.black,
-            decoration: TextDecoration.lineThrough
-),
-),
-           const SizedBox(
-             width: 60,
-           ),
-           const Icon(Icons.shopping_cart,color: Colors.green,size: 30,)
 
+         Image(
+           image: AssetImage(models.image),
+           width: double.infinity,
+           fit: BoxFit.cover,
+           height: 140.0,
+         ),
+           const Padding(
+               padding:EdgeInsets.symmetric(
+                   horizontal: 10
+               ),
+             child: Icon(
+               Icons.favorite_border,
+               size: 40,
+               color: Colors.white,
+             ),
+
+   )
          ],
+       ),
+
+         Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Text(
+             models.name!,
+             style: TextStyle(
+           fontSize: 16,
+               fontWeight: FontWeight.w900
+             ),
+           ),
+         ),
+         Padding(
+           padding: const EdgeInsets.symmetric(
+               horizontal: 8.0,
+           ),
+           child: Text(
+               models.brand!,
+           style: TextStyle(
+             fontSize: 14,
+             fontWeight: FontWeight.w500
+
+           ),
+           ),
+         ),
+
+         Text(models.price!,
+           style: const TextStyle(color:Colors.red,fontSize: 25),
+         ),
+         Row(
+           children: [
+             Text('${models.oldPrice}',
+              style: const TextStyle(fontSize: 20,color: Colors.black,
+              decoration: TextDecoration.lineThrough
+),
+),
+             const SizedBox(
+               width: 60,
+             ),
+             const Icon(Icons.shopping_cart,color: Colors.green,size: 30,)
+
+           ],
+
+
+         )
+
+       ],
 
 
        )
 
-     ],
-
-
-     )
-
+   ),
  );
 
 

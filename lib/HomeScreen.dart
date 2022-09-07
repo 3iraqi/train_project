@@ -14,8 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
   var currentIndex=0;
   List<Widget> screens=[
           Home(),
-    const Account(),
-    const Favourite()
+    const Favourite(),
+
+    const Account()
 
   ];
   @override
