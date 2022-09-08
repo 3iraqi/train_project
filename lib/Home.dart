@@ -122,7 +122,8 @@ List< ProductsModels> products =[
 
 
             child:
-          GridView.count(crossAxisCount: 2,
+          GridView.count(
+            crossAxisCount: 2,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             mainAxisSpacing: 20.0,
