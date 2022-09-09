@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'Products Models.dart';
 
 class Home extends StatelessWidget {
+List<String>header=["images/aap.png","images/nike.png","images/zz.jpg","images/aap.png","images/nike.png","images/zz.jpg","images/aap.png","images/nike.png","images/zz.jpg"];
 
 List< ProductsModels> products =[
 
@@ -68,51 +69,18 @@ List< ProductsModels> products =[
   Widget build(BuildContext context)=>SingleChildScrollView(
       child:Column(
         children: [
-          SingleChildScrollView(
-            scrollDirection:Axis.horizontal ,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
+          Container(
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+                itemCount: header.length,
+                itemBuilder: (context,index)=>Image.asset(header[index],
+                  height: 100,
+                width: 100,
+                )
 
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Image.asset("images/1.jpg",height: 50,width: 50,),
-              ),
-             ],
             ),
           ),
+
           const SizedBox(
             height: 10,
           ),
@@ -187,7 +155,7 @@ List< ProductsModels> products =[
            padding: const EdgeInsets.all(8.0),
            child: Text(
              models.name!,
-             style: TextStyle(
+             style: const TextStyle(
            fontSize: 16,
                fontWeight: FontWeight.w900
              ),
@@ -199,7 +167,7 @@ List< ProductsModels> products =[
            ),
            child: Text(
                models.brand!,
-           style: TextStyle(
+           style: const TextStyle(
              fontSize: 14,
              fontWeight: FontWeight.w500
 

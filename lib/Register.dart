@@ -16,23 +16,36 @@ class Register extends StatelessWidget {
 
 
              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 40.0),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 50.0,
+                    horizontal: 40.0
+                ),
+
                 child: Form(
                   key: formKey,
 
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('REGISTER',
-                            style: TextStyle(color: Colors.black, fontSize: (50))),
+                        const Text(
+                            'REGISTER',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: (50)
+                            )
+                        ),
                         const Text(
                           "REGISTER now to see our products",
-                          style: TextStyle(color: Colors.grey, fontSize: (20)),
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: (20)
+                          ),
                         ),
                         const SizedBox(
                           height: 15,
                           width: 20,
                         ),
+
                         TextFormField(
                           validator: (value){
                             if (value!.isEmpty){
@@ -46,12 +59,15 @@ class Register extends StatelessWidget {
                             hintStyle: TextStyle(
                               color: Colors.grey,
                             ),
+                            // border:
                           ),
                         ),
+
                         const SizedBox(
                           height: 20,
                           width: 20,
                         ),
+
                         TextFormField(
                           validator: (value){
                             if (value!.isEmpty){
