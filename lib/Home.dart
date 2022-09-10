@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'Products Models.dart';
 
-class Home extends StatelessWidget {
-List<String>header=["images/aap.png","images/nike.png","images/zz.jpg","images/aap.png","images/nike.png","images/zz.jpg","images/aap.png","images/nike.png","images/zz.jpg"];
+class Home extends StatefulWidget {
+
+  Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+final List<String>header=["images/aap.png","images/nike.png","images/zz.jpg","images/aap.png","images/nike.png","images/zz.jpg","images/aap.png","images/nike.png","images/zz.jpg"];
 
 List< ProductsModels> products =[
 
@@ -23,8 +31,8 @@ List< ProductsModels> products =[
   ProductsModels(
       name: 'Laptop',
       brand: 'dell',
-      price: 'EGP\' 11500',
-      oldPrice: 'EGP\' 12950',
+      price: 'EGP\' 1150',
+      oldPrice: 'EGP\' 1295',
       image: ('images/1.jpg'), id: null
   ),
   ProductsModels(
@@ -64,61 +72,62 @@ List< ProductsModels> products =[
   ),
 ];
 
-  Home({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context)=>SingleChildScrollView(
-      child:Column(
-        children: [
-          Container(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-                itemCount: header.length,
-                itemBuilder: (context,index)=>Image.asset(header[index],
-                  height: 100,
-                width: 100,
-                )
+  Widget build(BuildContext context)=>SafeArea(
+    child: SingleChildScrollView(
+
+        child:Column(
+          children: [
+
+            // SizedBox(
+            //   height: 10,
+            //
+            //
+            //   child: ListView.builder(
+            //     scrollDirection: Axis.horizontal,
+            //       itemCount: header.length,
+            //       itemBuilder: (context,index)=>ListTile(
+            //         title: Image.asset(header[index],
+            //
+            //         ),
+            //       )
+            //
+            //   ),
+            // ),
+
+            const SizedBox(
+              height: 10,
+            ),
+
+            GridView.count(
+              crossAxisCount: 2,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              mainAxisSpacing: 20.0,
+              crossAxisSpacing: 10.0,
+              childAspectRatio: 1/1.3,
+              children: List.generate(
+
+                    products.length,
+                      (index) =>buildProductItem( products [index])
+                ),
+
+
+
 
             ),
-          ),
 
-          const SizedBox(
-            height: 10,
-          ),
-
-          Container(
-            color: Colors.grey,
-
-
-            child:
-          GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 20.0,
-            crossAxisSpacing: 10.0,
-            childAspectRatio: 1/1.3,
-            children: List.generate(
-
-                  products.length, (index) =>buildProductItem( products [index])
-              ),
-
-
-
-
-          ),
-          ),
-
-        ],
-    )
-      );
-
-  }/// Grid View Class
+          ],
+      )
+        ),
+  );
+}/// Grid View Class
 
 
  Widget buildProductItem(ProductsModels models) =>Padding(
    padding: const EdgeInsets.all(4.0),
    child: Container(
-     color: Colors.red,
+     color: Colors.grey,
 
 
 
@@ -135,7 +144,7 @@ List< ProductsModels> products =[
            image: AssetImage(models.image),
            width: double.infinity,
            fit: BoxFit.cover,
-           height: 140.0,
+           height: 120.0,
          ),
            const Padding(
                padding:EdgeInsets.symmetric(
@@ -176,7 +185,7 @@ List< ProductsModels> products =[
          ),
 
          Text(models.price!,
-           style: const TextStyle(color:Colors.red,fontSize: 25),
+           style: const TextStyle(color:Colors.red,fontSize: 20),
          ),
          Row(
            children: [
@@ -188,7 +197,7 @@ List< ProductsModels> products =[
              const SizedBox(
                width: 60,
              ),
-             const Icon(Icons.shopping_cart,color: Colors.green,size: 30,)
+             const Icon(Icons.shopping_cart,color: Colors.blue,size: 30,)
 
            ],
 

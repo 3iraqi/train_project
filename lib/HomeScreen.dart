@@ -14,15 +14,16 @@ class _HomeScreenState extends State<HomeScreen> {
   var currentIndex=0;
   List<Widget> screens=[
           Home(),
-    const Favourite(),
+     Favourite(),
 
-    const Account()
+     Account()
 
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: const Text('First App'),
 
       ),
