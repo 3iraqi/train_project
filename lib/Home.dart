@@ -1,216 +1,137 @@
-import 'package:flutter/material.dart';
-import 'Products Models.dart';
+class Home {
+  bool? status;
+  Null? message;
+  Data? data;
 
-class Home extends StatefulWidget {
+  Home({this.status, this.message, this.data});
 
-  Home({Key? key}) : super(key: key);
+  Home.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
+    message = json['message'];
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+  }
 
-  @override
-  State<Home> createState() => _HomeState();
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['status'] = this.status;
+    data['message'] = this.message;
+    if (this.data != null) {
+      data['data'] = this.data!.toJson();
+    }
+    return data;
+  }
 }
 
-class _HomeState extends State<Home> {
-final List<String>header=["images/aap.png","images/nike.png","images/zz.jpg","images/aap.png","images/nike.png","images/zz.jpg","images/aap.png","images/nike.png","images/zz.jpg"];
+class Data {
+  List<Banners>? banners;
+  List<Products>? products;
+  String? ad;
 
-List< ProductsModels> products =[
+  Data({this.banners, this.products, this.ad});
 
-  ProductsModels(
-      name: 'New Design Laptop hp',
-      brand: 'Hp',
-      price: 'EGP\' 2500',
-      oldPrice: 'EGP\' 3550',
-      image: ('images/hp.jpg'), id: null
-  ),
-  ProductsModels(
-      name: 'New Design Laptop Dell',
-      brand: 'Dell',
-      price: 'EGP\' 5000',
-      oldPrice: 'EGP\' 9500',
-      image: ('images/dell.jpg'), id: null
-  ),
-  ProductsModels(
-      name: 'Laptop',
-      brand: 'dell',
-      price: 'EGP\' 1150',
-      oldPrice: 'EGP\' 1295',
-      image: ('images/1.jpg'), id: null
-  ),
-  ProductsModels(
-      name: 'New Design Laptop Lenovo',
-      brand: 'Lenovo',
-      price: 'EGP\' 7000',
-      oldPrice: 'EGP\' 9900',
-      image: ('images/lenovo.jpg'), id: null
-  ),
-  ProductsModels(
-      name: 'New Design Winter Jacket',
-      brand: 'hp',
-      price: 'EGP\' 500',
-      oldPrice: 'EGP\' 950',
-      image: ('images/jacket.jpg'), id: null
-  ),
-  ProductsModels(
-      name: 'New Design Winter Jacket',
-      brand: 'ZARA',
-      price: 'EGP\' 500',
-      oldPrice: 'EGP\' 950',
-      image: ('images/jacket.jpg'), id: null
-  ),
-  ProductsModels(
-      name: 'New Design Winter Jacket',
-      brand: 'ZARA',
-      price: 'EGP\' 500',
-      oldPrice: 'EGP\' 950',
-      image: ('images/jacket.jpg'), id: null
-  ),
-  ProductsModels(
-      name: 'New Design Winter Jacket',
-      brand: 'ZARA',
-      price: 'EGP\' 500',
-      oldPrice: 'EGP\' 950',
-      image: ('images/jacket.jpg'), id: null
-  ),
-];
+  Data.fromJson(Map<String, dynamic> json) {
+    if (json['banners'] != null) {
+      banners = <Banners>[];
+      json['banners'].forEach((v) {
+        banners!.add(new Banners.fromJson(v));
+      });
+    }
+    if (json['products'] != null) {
+      products = <Products>[];
+      json['products'].forEach((v) {
+        products!.add(new Products.fromJson(v));
+      });
+    }
+    ad = json['ad'];
+  }
 
-  @override
-  Widget build(BuildContext context)=>SafeArea(
-    child: SingleChildScrollView(
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.banners != null) {
+      data['banners'] = this.banners!.map((v) => v.toJson()).toList();
+    }
+    if (this.products != null) {
+      data['products'] = this.products!.map((v) => v.toJson()).toList();
+    }
+    data['ad'] = this.ad;
+    return data;
+  }
+}
 
-        child:Column(
-          children: [
+class Banners {
+  int? id;
+  String? image;
+  Null? category;
+  Null? product;
 
-            // SizedBox(
-            //   height: 10,
-            //
-            //
-            //   child: ListView.builder(
-            //     scrollDirection: Axis.horizontal,
-            //       itemCount: header.length,
-            //       itemBuilder: (context,index)=>ListTile(
-            //         title: Image.asset(header[index],
-            //
-            //         ),
-            //       )
-            //
-            //   ),
-            // ),
+  Banners({this.id, this.image, this.category, this.product});
 
-            const SizedBox(
-              height: 10,
-            ),
+  Banners.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    image = json['image'];
+    category = json['category'];
+    product = json['product'];
+  }
 
-            GridView.count(
-              crossAxisCount: 2,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              mainAxisSpacing: 20.0,
-              crossAxisSpacing: 10.0,
-              childAspectRatio: 1/1.3,
-              children: List.generate(
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['image'] = this.image;
+    data['category'] = this.category;
+    data['product'] = this.product;
+    return data;
+  }
+}
 
-                    products.length,
-                      (index) =>buildProductItem( products [index])
-                ),
+class Products {
+  int? id;
+  double? price;
+  double? oldPrice;
+  int? discount;
+  String? image;
+  String? name;
+  String? description;
+  List<String>? images;
+  bool? inFavorites;
+  bool? inCart;
 
+  Products(
+      {this.id,
+      this.price,
+      this.oldPrice,
+      this.discount,
+      this.image,
+      this.name,
+      this.description,
+      this.images,
+      this.inFavorites,
+      this.inCart});
 
+  Products.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    price = json['price'];
+    oldPrice = json['old_price'];
+    discount = json['discount'];
+    image = json['image'];
+    name = json['name'];
+    description = json['description'];
+    images = json['images'].cast<String>();
+    inFavorites = json['in_favorites'];
+    inCart = json['in_cart'];
+  }
 
-
-            ),
-
-          ],
-      )
-        ),
-  );
-}/// Grid View Class
-
-
- Widget buildProductItem(ProductsModels models) =>Padding(
-   padding: const EdgeInsets.all(4.0),
-   child: Container(
-     color: Colors.grey,
-
-
-
-       child:
-       Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-
-       children: [
-         Stack(
-         alignment: Alignment.topRight,
-         children: [
-
-         Image(
-           image: AssetImage(models.image),
-           width: double.infinity,
-           fit: BoxFit.cover,
-           height: 120.0,
-         ),
-           const Padding(
-               padding:EdgeInsets.symmetric(
-                   horizontal: 10
-               ),
-             child: Icon(
-               Icons.favorite_border,
-               size: 40,
-               color: Colors.white,
-             ),
-
-   )
-         ],
-       ),
-
-         Padding(
-           padding: const EdgeInsets.all(8.0),
-           child: Text(
-             models.name!,
-             style: const TextStyle(
-           fontSize: 16,
-               fontWeight: FontWeight.w900
-             ),
-           ),
-         ),
-         Padding(
-           padding: const EdgeInsets.symmetric(
-               horizontal: 8.0,
-           ),
-           child: Text(
-               models.brand!,
-           style: const TextStyle(
-             fontSize: 14,
-             fontWeight: FontWeight.w500
-
-           ),
-           ),
-         ),
-
-         Text(models.price!,
-           style: const TextStyle(color:Colors.red,fontSize: 20),
-         ),
-         Row(
-           children: [
-             Text('${models.oldPrice}',
-              style: const TextStyle(fontSize: 20,color: Colors.black,
-              decoration: TextDecoration.lineThrough
-),
-),
-             const SizedBox(
-               width: 60,
-             ),
-             const Icon(Icons.shopping_cart,color: Colors.blue,size: 30,)
-
-           ],
-
-
-         )
-
-       ],
-
-
-       )
-
-   ),
- );
-
-
-
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['price'] = this.price;
+    data['old_price'] = this.oldPrice;
+    data['discount'] = this.discount;
+    data['image'] = this.image;
+    data['name'] = this.name;
+    data['description'] = this.description;
+    data['images'] = this.images;
+    data['in_favorites'] = this.inFavorites;
+    data['in_cart'] = this.inCart;
+    return data;
+  }
+}

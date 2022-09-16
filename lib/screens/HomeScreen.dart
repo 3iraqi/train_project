@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Account.dart';
-import 'Favourite .dart';
+import 'Category.dart';
 import 'Home.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var currentIndex=0;
   List<Widget> screens=[
           Home(),
-     Favourite(),
+    Category(),
 
      Account()
 
@@ -32,7 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Text('Menu'),
         ) 
       ),
+
       body: screens[currentIndex],
+
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: false,
         currentIndex: currentIndex,

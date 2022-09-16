@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:train_projects/HomeScreen.dart';
+import 'package:train_projects/screens/HomeScreen.dart';
 import 'Register.dart';
 
 
@@ -7,7 +7,7 @@ class Login extends StatelessWidget {
 var formKey = GlobalKey<FormState>();
 
   Login({Key? key}) : super(key: key);
-
+final passwordController=TextEditingController();
   @override
   Widget build(BuildContext context) => Scaffold(
 
@@ -27,6 +27,7 @@ var formKey = GlobalKey<FormState>();
                   height: 20,
                 ),
                 TextFormField(
+                  // controller: passwordController ,
                   validator: ((value) {
                     if(value!.isEmpty){
                       return "email address must not be empty";
@@ -47,6 +48,7 @@ var formKey = GlobalKey<FormState>();
                 ),
 
                 TextFormField(
+                  controller: passwordController,
                   validator: (value) {
                     if(value!.isEmpty){
                       return 'Password ot be empty ';
