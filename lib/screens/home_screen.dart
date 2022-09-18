@@ -5,49 +5,49 @@ import '../model/product_model.dart';
 import '../providers/home_provider.dart';
 
 class HoomeScreen extends StatefulWidget {
-  HoomeScreen({Key? key}) : super(key: key);
+    HoomeScreen({Key? key}) : super(key: key);
 
-  @override
-  State<HoomeScreen> createState() => _HomeScreenState();
-}
+    @override
+    State<HoomeScreen> createState() => _HomeScreenState();
+    }
 
-HomeModel? homeModel;
-class _HomeScreenState extends State<HoomeScreen> {
+    HomeModel? homeModel;
+    class _HomeScreenState extends State<HoomeScreen> {
 
-  @override
-  void initState() {
-     Provider.of<HomeProvider>(context, listen: false)
-           .getAllData();
+    @override
+    void initState() {
+    Provider.of<HomeProvider>(context, listen: false)
+        .getAllData();
     // TODO: implement initState
     super.initState();
-  }
- 
-  @override
-  Widget build(BuildContext context) {
+    }
+
+    @override
+    Widget build(BuildContext context) {
 
     return Consumer<HomeProvider>(
-      builder: (context,HomeProvider,child){
-        return HomeProvider.data==null?
+    builder: (context,HomeProvider,child){
+    return HomeProvider.data==null?
 
-        Center(
-          child: CircularProgressIndicator(color: Colors.blue),
-        ):
+    Center(
+    child: CircularProgressIndicator(color: Colors.blue),
+    ):
 
-        Column(
-        children: [
-    
-            Expanded(
-              child:
-             GridView.builder(
-                physics: ScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 1.0,
-                    mainAxisSpacing: 4.0,
-                    childAspectRatio: .8),
-                itemCount:HomeProvider.data!.data!.products.length,
-                itemBuilder: (context, index) {
+    Column(
+    children: [
+
+    Expanded(
+    child:
+    GridView.builder(
+    physics: ScrollPhysics(),
+    shrinkWrap: true,
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2,
+    crossAxisSpacing: 1.0,
+    mainAxisSpacing: 4.0,
+    childAspectRatio: .8),
+    itemCount:HomeProvider.data!.data!.products.length,
+    itemBuilder: (ontext, index) {
                   return HomeProvider.data!.data!.products.isEmpty?CircularProgressIndicator():
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
