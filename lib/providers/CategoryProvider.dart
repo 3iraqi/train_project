@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../model/Catogry_Model.dart';
-import '../model/product_model.dart';
+
 
 class CategoryProvider with ChangeNotifier{
   AllCategory? data;
