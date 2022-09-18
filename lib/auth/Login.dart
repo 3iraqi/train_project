@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:train_projects/auth/register_screen.dart';
 import 'package:train_projects/screens/HomeScreen.dart';
-import 'Register.dart';
+// import 'Register.dart';
 
 
 class Login extends StatelessWidget {
@@ -76,7 +77,7 @@ final passwordController=TextEditingController();
                   children: [
                     const Text('I do not have an account'),
                     TextButton(onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder:(context) => Register(),));
+                      Navigator.push(context, MaterialPageRoute(builder:(context) => RegisterScreen(),));
                     }, child: const Text('Register'))
 
                   ],
