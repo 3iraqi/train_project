@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'Account.dart';
 import 'Category.dart';
 import '../screens/home_screen.dart';
-import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class NavigationPage extends StatefulWidget {
+  const NavigationPage({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<NavigationPage> createState() => _NavigationPageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _NavigationPageState extends State<NavigationPage> {
   var currentIndex=0;
   List<Widget> screens=[
     HoomeScreen(),

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../screens/HomeScreen.dart';
+import '../screens/NavigationPage.dart';
 
 import '../../providers/register_provider.dart';
 
@@ -151,7 +151,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ));
 
                                 }else{
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>NavigationPage()));
 
                                 }
                                 print("value "+value.toString());

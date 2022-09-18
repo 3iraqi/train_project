@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:train_projects/auth/register_screen.dart';
-import 'package:train_projects/screens/HomeScreen.dart';
+import 'package:train_projects/screens/NavigationPage.dart';
 // import 'Register.dart';
 
 
@@ -71,7 +71,7 @@ final passwordController=TextEditingController();
                     onPressed:() {
 
                   if(formKey.currentState!.validate()){}
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationPage(),));
                 },  child: const Text('Login')
                 ),Row(
                   children: [
