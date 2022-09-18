@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import 'lib/model/product_model.dart';
+import '../model/product_model.dart';
 
 import '../providers/home_provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+class HoomeScreen extends StatefulWidget {
+  HoomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HoomeScreen> createState() => _HomeScreenState();
 }
 
-//HomeModel? homeModel;
-class _HomeScreenState extends State<HomeScreen> {
+HomeModel? homeModel;
+class _HomeScreenState extends State<HoomeScreen> {
 
   @override
   void initState() {
@@ -26,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
 
     return Consumer<HomeProvider>(
-      builder: (context,homeProv,child){
-        return homeProv.data==null?
+      builder: (context,HomeProvider,child){
+        return HomeProvider.data==null?
 
         Center(
           child: CircularProgressIndicator(color: Colors.blue),
@@ -46,9 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisSpacing: 1.0,
                     mainAxisSpacing: 4.0,
                     childAspectRatio: .8),
-                itemCount:homeProv.data!.data!.products.length,
+                itemCount:HomeProvider.data!.data!.products.length,
                 itemBuilder: (context, index) {
-                  return homeProv.data!.data!.products.isEmpty?CircularProgressIndicator():
+                  return HomeProvider.data!.data!.products.isEmpty?CircularProgressIndicator():
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
                     decoration: BoxDecoration(
@@ -70,11 +70,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                       topRight: Radius.circular(10.0)),
                                   image: DecorationImage(
                                     fit: BoxFit.fill,
-                                    image:homeProv.data!.data!.products[index].image == null
+                                    image:HomeProvider.data!.data!.products[index].image == null
                                         ? NetworkImage(
                                             "https://cutz.com.eg/uploads/product_images/default.png")
                                         : NetworkImage(
-                                          homeProv.data!.data!.products[index].image.toString()),
+                                          HomeProvider.data!.data!.products[index].image.toString()),
                                   ),
                                 )),
                             Positioned(
@@ -98,9 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Icon(Icons.flash_on,
                                           color: Color(0xffdb1313), size: 20.0),
                                       Text(
-                                       homeProv.data!.data!.products[index].discount == null
+                                       HomeProvider.data!.data!.products[index].discount == null
                                             ? "0%"
-                                            : homeProv.data!.data!.products[index].discount.toString()+"%",
+                                            : HomeProvider.data!.data!.products[index].discount.toString()+"%",
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 11,
@@ -114,11 +114,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ListTile(
                           isThreeLine: false,
                           title: Text(
-                            homeProv.data!.data!.products[index].name!,
+                            HomeProvider.data!.data!.products[index].name!,
                             maxLines: 1,
                           ),
                           subtitle: Text(
-                            homeProv.data!.data!.products[index].name!,
+                            HomeProvider.data!.data!.products[index].name!,
                             maxLines: 1,
                           ),
                           minVerticalPadding: 2,
@@ -129,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Column(
                                 children: [
-                                 homeProv.data!.data!.products[index].price==null
+                                 HomeProvider.data!.data!.products[index].price==null
                                       ? SizedBox()
                                       : Row(
                                           children: [
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             SizedBox(
                                               width: 5.0,
                                             ),
-                                            Text("${ homeProv.data!.data!.products[index].price.toString()}"),
+                                            Text("${ HomeProvider.data!.data!.products[index].price.toString()}"),
                                           ],
                                         ),
                                   Row(
@@ -147,9 +147,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         width: 5.0,
                                       ),
                                       Text(
-                                     homeProv.data!.data!.products[index].old_price == null
+                                     HomeProvider.data!.data!.products[index].old_price == null
                                             ? ""
-                                            :  homeProv.data!.data!.products[index].old_price.toString(),
+                                            :  HomeProvider.data!.data!.products[index].old_price.toString(),
                                         style: TextStyle(
                                             decoration: TextDecoration.lineThrough,
                                             color: Colors.grey[400]),

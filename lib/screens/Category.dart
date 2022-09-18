@@ -8,13 +8,16 @@ class Category extends StatelessWidget {
       itemCount:4,
       itemBuilder: (BuildContext context, int index) {
         return Container(
-          height: 50,
+          // height: 50,
           color: Colors.amber,
-          child: Column(
-            children: [
-              Image.asset("images/1.jpg"),
-              Text("data")
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+
+                Image.asset("images/1.jpg",),
+                Text("data")
+              ],
+            ),
           ),
         );
       }

@@ -1,7 +1,7 @@
 
 class categories {
   bool? status;
-  Null? message;
+  dynamic message;
   Data? data;
 
   categories({this.status, this.message, this.data});
@@ -25,7 +25,7 @@ class categories {
 
 class Data {
   int? currentPage;
-  List<Data>? data;
+  List<AllCategory>? data;
   String? firstPageUrl;
   int? from;
   int? lastPage;
@@ -55,9 +55,9 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     currentPage = json['current_page'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <AllCategory>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(new AllCategory.fromJson(v));
       });
     }
     firstPageUrl = json['first_page_url'];
@@ -92,14 +92,14 @@ class Data {
   }
 }
 
-class DataB {
+class AllCategory {
   int? id;
   String? name;
   String? image;
 
-  DataB({this.id, this.name, this.image});
+  AllCategory({this.id, this.name, this.image});
 
-  DataB.fromJson(Map<String, dynamic> json) {
+  AllCategory.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     image = json['image'];

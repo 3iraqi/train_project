@@ -54,6 +54,7 @@ class Register extends StatelessWidget {
                             return null;
                           },
                           decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             prefixIcon: Icon(Icons.person),
                             labelText: 'Name',
                             hintStyle: TextStyle(
@@ -77,6 +78,7 @@ class Register extends StatelessWidget {
                           },
                           keyboardType: TextInputType.emailAddress,
                           decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             prefixIcon: Icon(Icons.email),
                             labelText: 'Email',
                             hintStyle: TextStyle(color: Colors.grey,
@@ -97,6 +99,7 @@ class Register extends StatelessWidget {
                           keyboardType: TextInputType.visiblePassword,
                           obscureText: true,
                           decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             suffixIcon: Icon(Icons.remove_red_eye),
                             prefixIcon: Icon(Icons.lock),
                             labelText: 'Password',
@@ -117,6 +120,7 @@ class Register extends StatelessWidget {
                           },
                           keyboardType: TextInputType.phone,
                           decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             prefixIcon: Icon(Icons.phone_android),
                             labelText: 'Phone',
                             hintStyle: TextStyle(color: Colors.grey),

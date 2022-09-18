@@ -38,6 +38,7 @@ final passwordController=TextEditingController();
                   ),
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.email),
                     labelText: 'EmailAddress',
                     labelStyle: TextStyle(color: Colors.grey)
@@ -49,6 +50,7 @@ final passwordController=TextEditingController();
 
                 TextFormField(
                   controller: passwordController,
+
                   validator: (value) {
                     if(value!.isEmpty){
                       return 'Password ot be empty ';
@@ -56,6 +58,7 @@ final passwordController=TextEditingController();
                     return null;
                   },
                   decoration:  const InputDecoration(
+                    border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.lock),
                     labelText: 'Password ',
                       labelStyle: TextStyle(color: Colors.grey),

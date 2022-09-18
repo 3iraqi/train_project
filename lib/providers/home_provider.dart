@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-// import 'lib/model/product_model.dart';
+ import '../model/product_model.dart';
+
 
 class HomeProvider with ChangeNotifier{
-  //HomeModel? data;
+  HomeModel? data;
   String? token;
   Future<dynamic>getAllData()async{
     var dio=Dio();
@@ -16,9 +17,9 @@ class HomeProvider with ChangeNotifier{
     
     
    final response= await dio.get("https://student.valuxapps.com/api/home");
-   print("res "+response.data['data']["products"].toString());
+   // print("res "+response.data['data']["products"].toString());
   
-    //data=HomeModel.fromJson(response.data);
+    data=HomeModel.fromJson(response.data);
     notifyListeners();
   }
 }
@@ -45,7 +46,7 @@ class HomeProvider with ChangeNotifier{
 
 // import 'package:dio/dio.dart';
 // import 'package:flutter/material.dart';
-// import 'package:scoffold_widget/model/product_model.dart';
+// import 'package:scaffold_widget/model/product_model.dart';
 
 // class HomeProvider with ChangeNotifier{
 //   // List<Products> products=[];0

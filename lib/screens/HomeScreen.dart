@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Account.dart';
 import 'Category.dart';
-import 'Home.dart';
+import '../screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var currentIndex=0;
   List<Widget> screens=[
-          Home(),
+    HoomeScreen(),
     Category(),
 
      Account()
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'My Favorite'
+            label: 'My Category'
         ),
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
