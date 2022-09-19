@@ -25,7 +25,7 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context)=>Consumer<CategoryProvider>(
   builder: (context,  category, child) {
   return ListView.builder(
-      itemCount: category.category.data!.data!.length,
+      itemCount: category.categories.data!.data!.length,
         padding: const EdgeInsets.all(8),
       
         itemBuilder: (BuildContext context, int index) {

@@ -5,7 +5,8 @@ import '../model/Catogry_Model.dart';
 
 
 class CategoryProvider with ChangeNotifier{
-  AllCategory? data;
+
+  categories? category;
   String? token;
   Future<dynamic>getAllData()async{
     var dio=Dio();
@@ -16,7 +17,7 @@ class CategoryProvider with ChangeNotifier{
       };
     
     final response=await dio.get("https://student.valuxapps.com/api/categories");
-    data =AllCategory.fromJson(response.data);
+    category =categories.fromJson(response.data);
     notifyListeners();
   }
 }
