@@ -50,8 +50,13 @@ class HoomeScreen extends StatefulWidget {
     itemBuilder: (ontext, index) {
                   return HomeProvider.data!.data!.products.isEmpty?CircularProgressIndicator():
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
+                    margin: EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 20.0,
+                    ),
                     decoration: BoxDecoration(
+                      border: Border.all(width: 2,
+                          color: Colors.red),
                       borderRadius: BorderRadius.circular(10.0),
                       color: Colors.white,
                     ),
@@ -65,7 +70,7 @@ class HoomeScreen extends StatefulWidget {
                                 height: 100.0,
                                 decoration: BoxDecoration(
                                   color: Colors.red,
-                                  borderRadius: BorderRadius.only(
+                                  borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(10.0),
                                       topRight: Radius.circular(10.0)),
                                   image: DecorationImage(
@@ -80,14 +85,19 @@ class HoomeScreen extends StatefulWidget {
                             Positioned(
                                 right: 10,
                                 top: 5,
-                                child: Icon(Icons.favorite_border,
-                                    color: Colors.blue)),
+                                child: Icon(
+                                    Icons.favorite_border,
+                                    color: Colors.blue
+                                )
+                            ),
                             Positioned(
                                 left: 10,
                                 top: 0.0,
                                 child: Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 3.0),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 3.0),
                                   decoration: BoxDecoration(
+
                                     color: Color(0xffBFE2FF),
                                     borderRadius: BorderRadius.only(
                                         bottomRight: Radius.circular(4.0),

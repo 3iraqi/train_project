@@ -33,7 +33,7 @@ class _CategoryState extends State<Category> {
 
           return  Container(
             // height: 50,
-            color: Colors.amber,
+            color: Colors.white,
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -45,7 +45,7 @@ class _CategoryState extends State<Category> {
 
                   const SizedBox(height: 10,),
 
-                  const Text("data")
+                   Text("${category.category?.data!.data![index].name!}")
 
                 ],
               ),
