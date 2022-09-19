@@ -23,9 +23,10 @@ class _CategoryState extends State<Category> {
   }
   @override
   Widget build(BuildContext context)=>Consumer<CategoryProvider>(
+
   builder: (context,  category, child) {
   return ListView.builder(
-      itemCount: category.categories.data!.data!.length,
+      itemCount: category.category?.data!.data!.length,
         padding: const EdgeInsets.all(8),
       
         itemBuilder: (BuildContext context, int index) {
@@ -39,7 +40,7 @@ class _CategoryState extends State<Category> {
 
                   Image(
                     image: NetworkImage(
-                        CategoryProvider.category?.data?.Data!.AllCategory[index].image ?? ""),
+                        category.category?.data!.data![index].image ?? ""),
                      ),
 
                   const SizedBox(height: 10,),
