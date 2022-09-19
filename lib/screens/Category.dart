@@ -39,8 +39,12 @@ class _CategoryState extends State<Category> {
                 children: [
 
                   Image(
-                    image: NetworkImage(
-                        category.category?.data!.data![index].image ?? ""),
+                    image: category.category?.data!.data![index].image == null?
+                          NetworkImage(
+                                         "https://freesvg.org/img/Loading_icon_with_fade.png")
+
+                        :NetworkImage(
+                        category.category?.data!.data![index].image ?? "")
                      ),
 
                   const SizedBox(height: 10,),
