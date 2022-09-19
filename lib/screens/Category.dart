@@ -39,8 +39,9 @@ class _CategoryState extends State<Category> {
                 children: [
 
                   Image(
-                    image: category.category?.data!.data![index].image == null?
-                          NetworkImage(
+                      fit: BoxFit.cover,
+                      image: category.category?.data!.data![index].image == null?
+                          const NetworkImage(
                                          "https://freesvg.org/img/Loading_icon_with_fade.png")
 
                         :NetworkImage(

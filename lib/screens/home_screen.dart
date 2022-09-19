@@ -101,12 +101,12 @@ class HoomeScreen extends StatefulWidget {
                                     color: Color(0xffBFE2FF),
                                     borderRadius: BorderRadius.only(
                                         bottomRight: Radius.circular(4.0),
-                                        bottomLeft: const Radius.circular(4.0)),
+                                        bottomLeft: Radius.circular(4.0)),
                                   ),
                                   child: Column(
                                     children: [
                                       const Icon(Icons.flash_on,
-                                          color: const Color(0xffdb1313), size: 20.0),
+                                          color: Color(0xffdb1313), size: 20.0),
                                       Text(
                                        HomeProvider.data!.data!.products[index].discount == null
                                             ? "0%"
