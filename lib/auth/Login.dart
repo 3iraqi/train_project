@@ -8,22 +8,33 @@ class Login extends StatelessWidget {
 var formKey = GlobalKey<FormState>();
 
   Login({Key? key}) : super(key: key);
+
 final passwordController=TextEditingController();
   @override
   Widget build(BuildContext context) => Scaffold(
 
     body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
+
       children: [
+
+
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 40),
+          padding: const EdgeInsets.symmetric(
+              horizontal: 40,
+              vertical: 40),
           child: Form(
             key: formKey,
            child: SingleChildScrollView(
             child: Column(
               children: [
 
-                const Text('Login',style: TextStyle(fontSize: (50)),),
+                const Text(
+                  'Login',
+                  style: TextStyle(
+                      fontSize: 50
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -33,7 +44,6 @@ final passwordController=TextEditingController();
                     if(value!.isEmpty){
                       return "email address must not be empty";
                     }
-
                     return null;
                   }
                   ),
@@ -51,7 +61,7 @@ final passwordController=TextEditingController();
 
                 TextFormField(
                   controller: passwordController,
-
+                  keyboardType: TextInputType.visiblePassword,
                   validator: (value) {
                     if(value!.isEmpty){
                       return 'Password ot be empty ';
@@ -67,16 +77,17 @@ final passwordController=TextEditingController();
                            ),
                 ),
                 ElevatedButton(
-
                     onPressed:() {
 
                   if(formKey.currentState!.validate()){}
                   Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationPage(),));
                 },  child: const Text('Login')
-                ),Row(
+                ),
+                Row(
                   children: [
                     const Text('I do not have an account'),
-                    TextButton(onPressed: () {
+                    TextButton(
+                        onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder:(context) => RegisterScreen(),));
                     }, child: const Text('Register'))
 

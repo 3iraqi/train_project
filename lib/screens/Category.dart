@@ -24,9 +24,9 @@ class _CategoryState extends State<Category> {
   @override
   Widget build(BuildContext context)=>Consumer<CategoryProvider>(
 
-  builder: (context,  category, child) {
+  builder: (context,  categoryProv, child) {
   return ListView.builder(
-      itemCount: category.category?.data!.data!.length,
+      itemCount: categoryProv.category?.data!.data!.length,
         padding: const EdgeInsets.all(8),
       
         itemBuilder: (BuildContext context, int index) {
@@ -37,20 +37,18 @@ class _CategoryState extends State<Category> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-
                   Image(
                       fit: BoxFit.cover,
-                      image: category.category?.data!.data![index].image == null?
-                          const NetworkImage(
-                                         "https://freesvg.org/img/Loading_icon_with_fade.png")
+                      image: categoryProv.category?.data!.data![index].image == null ?
+                          const NetworkImage("https://freesvg.org/img/Loading_icon_with_fade.png")
 
                         :NetworkImage(
-                        category.category?.data!.data![index].image ?? "")
+                        categoryProv.category?.data!.data![index].image ?? "")
                      ),
 
                   const SizedBox(height: 10,),
 
-                   Text("${category.category?.data!.data![index].name!}")
+                   Text("${categoryProv.category?.data!.data![index].name!}")
 
                 ],
               ),
